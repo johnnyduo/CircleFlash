@@ -1,0 +1,3 @@
+# CircleFlash
+
+CircleFlash revolutionizes cross-border payments by integrating Circle’s programmable token technology with Wormhole’s cross-chain capabilities. Our primary objective is to eliminate delays and enhance interoperability in international transactions. Key features include instant stablecoin transfers, seamless cross-chain bridging via Wormhole CCTP, and robust compliance with KYC/AML standards. CircleFlash empowers businesses with secure, efficient, and boundary-free financial solutions, redefining global payments in the Web3 ecosystem.
