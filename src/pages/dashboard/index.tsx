@@ -2,7 +2,7 @@ import { BalanceComponent } from "@/components/dashboard/balance";
 import { Layout } from "@/components/dashboard/layout";
 import { Dropdown } from "@/components/dropdown";
 import { useWallet } from "@/hooks/useWallet";
-import { iban } from "@/utils/iban";
+import { iban, swift } from "@/utils/iban";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
@@ -39,6 +39,9 @@ function DashboardComponent() {
                 </div> */}
                 <div className="text-sm text-gray-200">
                   IBAN: {iban(wallet.address)}
+                </div>
+                <div className="text-sm text-gray-200">
+                  SWIFT: {swift(iban(wallet.address))}
                 </div>
                 {/* Address */}
                 <div

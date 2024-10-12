@@ -1,5 +1,5 @@
 import { useWallet } from "@/hooks/useWallet";
-import { iban } from "@/utils/iban";
+import { iban, swift } from "@/utils/iban";
 import { useMemo } from "react";
 import { useRouter } from "next/router";
 
@@ -24,6 +24,7 @@ export function WalletsComponent() {
             <h2 className="text-lg font-semibold">{wallet.name}</h2>
             <div className="text-sm text-gray-300">{wallet.refId}</div>
             <div className="text-sm text-gray-300 mt-1">IBAN: {iban(wallet.address)}</div>
+            <div className="text-sm text-gray-300 mt-1">SWIFT: {swift(iban(wallet.address))}</div>
             <button
               onClick={() => {
                 changeWallet(wallet.id)

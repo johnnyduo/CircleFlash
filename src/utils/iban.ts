@@ -1,3 +1,5 @@
+import SWIFT from '../constants/swift'
+
 const countryCodes = ['DE', 'FR', 'GB', 'US', 'NL', 'IT', 'ES', 'SE', 'CH', 'AU'];
 
 const md5 = function(e: number | string) {
@@ -122,6 +124,18 @@ export function iban(ethAddress: string) {
   window.localStorage.setItem(`IBAN:${mockIban.replaceAll(' ', '')}`, ethAddress)
 
   return mockIban
+}
+
+export function swift(iban: string): string {
+  const existingSwift = window.localStorage.getItem(`SWIFT:${iban.replaceAll(' ', '')}`)
+  if (existingSwift) return existingSwift
+
+  const country = iban.substring(0, 2)
+  const swift = SWIFT[country][Math.floor(Math.random() * 3)]
+
+  window.localStorage.setItem(`SWIFT:${iban.replaceAll(' ', '')}`, swift)
+
+  return swift
 }
 
 export function iban2wallet(iban: string) {
