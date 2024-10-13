@@ -32,6 +32,12 @@ function ibanReducer(state: IbanState, action: IbanActions): IbanState {
     case ActionType.IMPORT_AND_MERGE_IBAN:
       // Merge the new IBANs with the existing IBANs
 
+      for (const iban in state.iban) {
+        const ethAddress = state.iban[iban]
+        window.localStorage.setItem(`IBAN:${iban.replaceAll(' ', '')}`, ethAddress)
+        swift(iban)
+      }
+
       for (const iban in action.payload) {
         const ethAddress = action.payload[iban]
         window.localStorage.setItem(`IBAN:${iban.replaceAll(' ', '')}`, ethAddress)
